@@ -1,0 +1,24 @@
+{
+  "type": "module",
+  "name": "zoo-app",
+  "version": "1.0.0",
+  "description": "A zoo inside a computer!",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha --require esm tests/**/*.js"
+  },
+  "keywords": [
+    "zoo"
+  ],
+  "author": "Juan Cruz Riera",
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "esm": "^3.2.25",
+    "mocha": "^9.0.0"
+  }
+}

@@ -1,5 +1,8 @@
 /**
  * Base class for animals.
+ * @class
+ * @classdesc Represents any animal.
+ * @constructor
  */
 export class Animal {
     /**

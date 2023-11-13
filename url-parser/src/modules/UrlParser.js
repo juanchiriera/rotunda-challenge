@@ -26,21 +26,16 @@ export function parseUrl(urlFormat, urlInstance) {
 
 /**
  * Parses query parameters from a string.
+ * In order to achieve this, it splits each key-value pair and map them into an object building the response.
  * @param {string} queryString - The query string.
  * @returns {Object} - A hash representing query parameters.
  */
 function parseQueryParams(queryString) {
-    // Using chain to make multiple operations readable
     return _.chain(queryString)
-        // Split into key, value pairs
         .split('&')
-        // Group key and value pairs splitting them by '='
         .map(_.partial(_.split, _, '=', 2))
-        // Map key and values
         .fromPairs()
-        // Parse each value
         .mapValues(parseValue)
-        // Return final result
         .value();
 }
 

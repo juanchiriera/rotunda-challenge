@@ -38,7 +38,7 @@ We will hold on the queue the timestamp of the latest errors and limit it's size
 
 The queue will be updated every time an error occurs, deleting all of the timestamps which does not correspond to the last minute.
 
-It will not be necessary to keep track of the last email sent in order to avoid sending more than one email during the minute window since the error count is being restarted every time a notification is sent.
+It will also be necessary to keep track of the last email sent in order to avoid sending more than one email during the minute window.
 
 ## Resolution
 
@@ -54,6 +54,7 @@ const ALLOWED_ERRORS_THRESHOLD = 10; // Number of errors triggering the notifica
 // first: obtain the value of the first element of the queue.
 // clear: remove all elements from the queue. 
 var errorQueue = new Queue();
+var lastEmailTimestamp = 0;
 
 // Function to be called whenever an error occurs
 function handleNewError(error) {
@@ -71,9 +72,11 @@ function handleNewError(error) {
   // Add the latest error to the queue
   erroeQueue.enqueue(error);
 
-  // Send the notification and clear the queue in case there are more than 10 errors.
-  if(errorCount>=ALLOWED_ERRORS_THRESHOLD){
+  // Send the notification and clear the queue in case there are more than 10 errors and more than a minute has passed.
+  if(errorCount>=ALLOWED_ERRORS_THRESHOLD 
+    && currentTime - lastEmailTimestamp > WINDOW_SIZE_MILISECONDS){
     sendEmailNotification();
+    lastEmailTimestamp = currentTime;
     errorQueue.clear();
   }
 }

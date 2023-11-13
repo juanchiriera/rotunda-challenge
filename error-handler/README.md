@@ -34,7 +34,7 @@ Please assume:
 ## Strategy
 
 For this scenario, we will make use of a queue structure. 
-We will hold on the queue the timestamp of the latest errors and limit it's size to the maximum error count within the time allowed.
+We will store on the queue the timestamp of the latest errors and limit it's size to the maximum error count within the time allowed. We will assume the topic of the error is not important, and will accumulate every error regardless of the topic or code. 
 
 The queue will be updated every time an error occurs, deleting all of the timestamps which does not correspond to the last minute.
 

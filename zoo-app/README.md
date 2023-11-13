@@ -5,12 +5,39 @@ Welcome to the Zoo Application! This simple Node.js application simulates a zoo 
 ## Table of Contents
 - [Zoo Application](#zoo-application)
   - [Table of Contents](#table-of-contents)
+  - [Exercise description](#exercise-description)
+    - [Zoo Exercise](#zoo-exercise)
   - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
     - [Install and deploy](#install-and-deploy)
     - [Running Tests](#running-tests)
     - [Deploy using docker](#deploy-using-docker)
     - [Project Structure](#project-structure)
+
+## Exercise description
+
+### Zoo Exercise
+
+We are building a zoo inside a computer. Each animal species in our zoo has lots
+of different, particular, behaviors, but all animals talk to each other in a similar
+way. Specifically, they all implement a `speak` method, the output of which is the
+arbitrary input string interspersed with an "animal sound" that is particular to that
+type of animal. For example, the lion's `speak` function behaves like so:
+
+```javascript
+> lion.speak( "I'm a lion" );
+< "I'm roar a roar lion roar"
+```
+
+The tiger's speak function behaves similarly but with a different sound:
+
+```javascript
+> tiger.speak( "Lions suck" );
+< "Lions grrr suck grrr"
+```
+
+Please write logic and classes to support our zoo in JavaScript (using whatever
+class model you like) *with attention to code structure and readability*.
 
 ## Getting Started
 

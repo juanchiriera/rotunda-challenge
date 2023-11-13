@@ -1,4 +1,4 @@
-import { Animal } from './base/Animal.js';
+import { Animal } from './base/Animal.js'
 
 /**
  * Tiger class representing a tiger animal.
@@ -7,8 +7,8 @@ import { Animal } from './base/Animal.js';
  * @constructor
  */
 export class Tiger extends Animal {
-    constructor() {
-        // The sound of a tiger is "grrr".
-        super("grrr");
-    }
+  constructor () {
+    // The sound of a tiger is "grrr".
+    super('grrr')
+  }
 }
